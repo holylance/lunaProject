@@ -1,4 +1,4 @@
-package com.example.lunaproject
+package com.hjcorp.lunaproject
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

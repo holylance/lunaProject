@@ -1,4 +1,4 @@
-package com.example.lunaproject
+package com.hjcorp.lunaproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
