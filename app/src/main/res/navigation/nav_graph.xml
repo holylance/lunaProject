@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/lobbyFragment">
+
+    <fragment
+        android:id="@+id/lobbyFragment"
+        android:name="com.hjcorp.lunaproject.lobby.LobbyFragment"
+        android:label="lobbyFragment"
+        tools:layout="@layout/lobby_fragment" />
+    <fragment
+        android:id="@+id/game1Fragment"
+        android:name="com.hjcorp.lunaproject.game1.Game1Fragment"
+        android:label="game1Fragment"
+        tools:layout="@layout/game1_fragment" />
+    <fragment
+        android:id="@+id/game2Fragment"
+        android:name="com.hjcorp.lunaproject.game2.Game2Fragment"
+        android:label="game2Fragment"
+        tools:layout="@layout/game2_fragment" />
+
+</navigation>

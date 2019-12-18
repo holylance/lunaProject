@@ -1,4 +1,4 @@
-package com.example.lunaproject
+package com.hjcorp.lunaproject
 
 import org.junit.Test
 
