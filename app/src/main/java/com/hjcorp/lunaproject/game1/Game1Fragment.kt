@@ -1,7 +1,6 @@
 package com.hjcorp.lunaproject.game1
 
 import android.graphics.drawable.AnimationDrawable
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,13 +34,14 @@ class Game1Fragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(Game1ViewModel::class.java)
+        viewModel = Game1ViewModel(context!!)
         // TODO: Use the ViewModel
     }
 
     private fun runSprite() {
         val sprite = game1_sprite.drawable as AnimationDrawable
         sprite.stop()
+        viewModel.playRandomDogBarking()
         sprite.start()
     }
 }
