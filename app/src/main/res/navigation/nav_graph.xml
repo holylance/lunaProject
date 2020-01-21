@@ -21,11 +21,28 @@
         android:id="@+id/game1Fragment"
         android:name="com.hjcorp.lunaproject.game1.Game1Fragment"
         android:label="game1Fragment"
-        tools:layout="@layout/game1_fragment" />
+        tools:layout="@layout/game1_fragment" >
+        <action
+            android:id="@+id/action_game1Fragment_to_ADFragment"
+            app:destination="@id/ADFragment" />
+    </fragment>
     <fragment
         android:id="@+id/game2Fragment"
         android:name="com.hjcorp.lunaproject.game2.Game2Fragment"
         android:label="game2Fragment"
-        tools:layout="@layout/game2_fragment" />
+        tools:layout="@layout/game2_fragment" >
+        <action
+            android:id="@+id/action_game2Fragment_to_ADFragment"
+            app:destination="@id/ADFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ADFragment"
+        android:name="com.hjcorp.lunaproject.ad.ADFragment"
+        android:label="ADFragment"
+        tools:layout="@layout/ad_fragment">
+        <action
+            android:id="@+id/action_ADFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment" />
+    </fragment>
 
 </navigation>

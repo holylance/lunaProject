@@ -1,48 +1,55 @@
-package com.hjcorp.lunaproject.lobby
+package com.hjcorp.lunaproject.ad
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.hjcorp.lunaproject.R
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.lobby_fragment.*
+import kotlinx.android.synthetic.main.ad_fragment.*
 
-class LobbyFragment : Fragment() {
-
+class ADFragment : Fragment() {
     companion object {
-        fun newInstance() = LobbyFragment()
+        fun newInstance() = ADFragment()
     }
 
-    private lateinit var viewModel: LobbyViewModel
+    private lateinit var viewModel: ADViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.lobby_fragment, container, false)
+        return inflater.inflate(R.layout.ad_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button_game1.setOnClickListener {
-            nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game1Fragment)
-        }
-        button_game2.setOnClickListener {
-            nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game2Fragment)
-        }
-        button_youtube.setOnClickListener {
+        image_button_youtube.setOnClickListener {
             viewModel.redirectToYoutube()
         }
+
+        delayNav()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        delayNav()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = LobbyViewModel(context!!)
+        viewModel = ADViewModel(context!!)
+    }
+
+    private fun delayNav() {
+        Handler().postDelayed(
+            {
+                nav_host.findNavController().navigate(R.id.lobbyFragment)
+            }
+            ,2000
+        )
     }
 }

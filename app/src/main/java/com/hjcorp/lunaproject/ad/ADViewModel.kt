@@ -1,11 +1,11 @@
-package com.hjcorp.lunaproject.lobby
+package com.hjcorp.lunaproject.ad
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 
-class LobbyViewModel(
+class ADViewModel(
     private val context: Context
 ) : ViewModel() {
     companion object {
