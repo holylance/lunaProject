@@ -1,12 +1,10 @@
 package com.hjcorp.lunaproject.ad
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.hjcorp.lunaproject.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_fragment.*
@@ -27,29 +25,22 @@ class ADFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ADViewModel(context!!, progress_bar_youtube)
+
         image_button_youtube.setOnClickListener {
             viewModel.redirectToYoutube()
         }
 
-        delayNav()
+        viewModel.delayNav(nav_host)
     }
 
     override fun onResume() {
         super.onResume()
-        delayNav()
+        viewModel.delayNav(nav_host)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ADViewModel(context!!)
-    }
-
-    private fun delayNav() {
-        Handler().postDelayed(
-            {
-                nav_host.findNavController().navigate(R.id.lobbyFragment)
-            }
-            ,2000
-        )
+    override fun onDestroy() {
+        viewModel.disposable.dispose()
+        super.onDestroy()
     }
 }
