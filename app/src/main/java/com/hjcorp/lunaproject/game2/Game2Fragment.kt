@@ -29,9 +29,6 @@ class Game2Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setImage(R.drawable.ic_filter_1_black_24dp)
 
-        setExitListener(game2_layout)
-        setExitListener(game2_sprite)
-
         game2_sprite.apply {
             setOnClickListener {
                 when(viewModel.imageResource) {
@@ -58,28 +55,5 @@ class Game2Fragment : Fragment() {
     private fun setImage(resourceId: Int) {
         game2_sprite.setImageResource(resourceId)
         viewModel.imageResource = resourceId
-    }
-
-    private fun setExitListener(view: View) {
-        view.apply {
-            setOnLongClickListener {
-                exit_progress_bar.visibility = View.VISIBLE
-                game2_exit_textView.visibility = View.VISIBLE
-                false
-            }
-
-            setOnTouchListener { _, event ->
-                when(event.action) {
-                    MotionEvent.ACTION_UP -> {
-                        exit_progress_bar.visibility = View.GONE
-                        game2_exit_textView.visibility = View.GONE
-                        false
-                    }
-                    else -> {
-                        false
-                    }
-                }
-            }
-        }
     }
 }
