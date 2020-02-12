@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.hjcorp.lunaproject.R
+import com.hjcorp.lunaproject.shared.BaseFragment
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ADFragment : Fragment() {
-    companion object {
-        fun newInstance() = ADFragment()
-    }
+class ADFragment : BaseFragment() {
 
-    private lateinit var viewModel: ADViewModel
+    private val viewModel by viewModel<ADViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,22 +26,24 @@ class ADFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ADViewModel(context!!, progress_bar_youtube)
 
         image_button_youtube.setOnClickListener {
             viewModel.redirectToYoutube()
         }
-
-        viewModel.delayNav(nav_host)
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.delayNav(nav_host)
-    }
-
-    override fun onDestroy() {
-        viewModel.disposable.dispose()
-        super.onDestroy()
+    override fun bindProperties(disposable: CompositeDisposable) {
+        disposable.add(
+            viewModel.everySeconds()
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext {
+                    viewModel.count++
+                    progress_bar_youtube.progress = viewModel.count * 50
+                }
+                .doOnComplete {
+                    nav_host.findNavController().navigate(R.id.lobbyFragment)
+                }
+                .subscribe()
+        )
     }
 }

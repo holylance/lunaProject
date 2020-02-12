@@ -1,27 +1,23 @@
 package com.hjcorp.lunaproject.game2
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.hjcorp.lunaproject.R
+import com.hjcorp.lunaproject.shared.BaseFragment
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.game2_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class Game2Fragment : Fragment() {
+class Game2Fragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = Game2Fragment()
-    }
-
-    private lateinit var viewModel: Game2ViewModel
+    private val viewModel by viewModel<Game2ViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = Game2ViewModel()
         return inflater.inflate(R.layout.game2_fragment, container, false)
     }
 
@@ -51,6 +47,8 @@ class Game2Fragment : Fragment() {
             }
         }
     }
+
+    override fun bindProperties(disposable: CompositeDisposable) {}
 
     private fun setImage(resourceId: Int) {
         game2_sprite.setImageResource(resourceId)

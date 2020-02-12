@@ -1,8 +1,8 @@
 package com.hjcorp.lunaproject.game2
 
-import androidx.lifecycle.ViewModel
+import com.hjcorp.lunaproject.shared.BaseViewModel
 
-class Game2ViewModel : ViewModel() {
+class Game2ViewModel : BaseViewModel() {
     var imageResource: Int = 0
 
     init {

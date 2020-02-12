@@ -1,25 +1,20 @@
 package com.hjcorp.lunaproject.lobby
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.hjcorp.lunaproject.R
+import com.hjcorp.lunaproject.shared.BaseFragment
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.lobby_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LobbyFragment : Fragment() {
+class LobbyFragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = LobbyFragment()
-    }
-
-    private lateinit var viewModel: LobbyViewModel
+    private val viewModel by viewModel<LobbyViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +36,5 @@ class LobbyFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = LobbyViewModel(context!!)
-    }
+    override fun bindProperties(disposable: CompositeDisposable) {}
 }

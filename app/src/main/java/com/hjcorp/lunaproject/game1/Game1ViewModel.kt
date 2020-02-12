@@ -3,14 +3,13 @@ package com.hjcorp.lunaproject.game1
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.SoundPool
-import androidx.lifecycle.ViewModel
 import com.hjcorp.lunaproject.R
+import com.hjcorp.lunaproject.shared.BaseViewModel
 import kotlin.random.Random
-
 
 class Game1ViewModel(
     context: Context
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val sounds = arrayListOf<Int>()
     private var soundPool: SoundPool? = null
