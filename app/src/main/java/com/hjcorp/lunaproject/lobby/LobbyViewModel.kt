@@ -3,11 +3,11 @@ package com.hjcorp.lunaproject.lobby
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.lifecycle.ViewModel
+import com.hjcorp.lunaproject.shared.BaseViewModel
 
 class LobbyViewModel(
     private val context: Context
-) : ViewModel() {
+) : BaseViewModel() {
     companion object {
         private const val YOUTUBE_ID = "UCXrRClRj7noCxiBKzAPhJ6A"
     }

@@ -2,20 +2,18 @@ package com.hjcorp.lunaproject.game1
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hjcorp.lunaproject.R
+import com.hjcorp.lunaproject.shared.BaseFragment
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.game1_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class Game1Fragment : Fragment() {
+class Game1Fragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = Game1Fragment()
-    }
-
-    private lateinit var viewModel: Game1ViewModel
+    private val viewModel by viewModel<Game1ViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,11 +30,7 @@ class Game1Fragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = Game1ViewModel(context!!)
-        // TODO: Use the ViewModel
-    }
+    override fun bindProperties(disposable: CompositeDisposable) {}
 
     private fun runSprite() {
         val sprite = game1_sprite.drawable as AnimationDrawable
