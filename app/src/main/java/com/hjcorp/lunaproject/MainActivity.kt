@@ -16,6 +16,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        val fragment = nav_host.findNavController().currentDestination
+        fragment?.let {
+            if (it.id == R.id.lobbyFragment) {
+                finish()
+                return
+            }
+        }
+
         onSupportNavigateUp()
     }
 
