@@ -32,7 +32,7 @@ class LobbyFragment : BaseFragment() {
             nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game2Fragment)
         }
         button_youtube.setOnClickListener {
-            viewModel.redirectToYoutube()
+            redirectToYoutube()
         }
     }
 

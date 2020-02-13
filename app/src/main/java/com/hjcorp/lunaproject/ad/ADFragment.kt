@@ -28,7 +28,7 @@ class ADFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         image_button_youtube.setOnClickListener {
-            viewModel.redirectToYoutube()
+            redirectToYoutube()
         }
     }
 
