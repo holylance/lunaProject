@@ -8,40 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".lobby.LobbyFragment">
 
-    <Button
-        android:id="@+id/button_game1"
-        android:layout_width="@dimen/button_game_width"
-        android:layout_height="@dimen/button_game_height"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/game_1"
-        app:layout_constraintBottom_toTopOf="@id/button_youtube"
-        app:layout_constraintEnd_toStartOf="@id/button_game2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_game2"
-        android:layout_width="@dimen/button_game_width"
-        android:layout_height="@dimen/button_game_height"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/game_2"
-        app:layout_constraintBottom_toTopOf="@id/button_youtube"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/button_game1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_youtube"
-        android:layout_width="@dimen/button_game_width"
-        android:layout_height="@dimen/button_game_height"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/youtube"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/game_items_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_game1" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/game_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

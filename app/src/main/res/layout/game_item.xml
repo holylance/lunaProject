@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_game_item"
+    android:paddingTop="@dimen/text_size_normal"
+    android:paddingBottom="@dimen/text_size_normal"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/game_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/game_item_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_filter_1_black_24dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/game_item_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="60dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/game_item_title"
+        android:textSize="@dimen/text_size_medium"
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        tools:text="Item Name"
+        app:layout_constraintStart_toEndOf="@id/game_item_guideline"
+        app:layout_constraintEnd_toStartOf="@id/game_indicator"
+        app:layout_constraintTop_toTopOf="@id/game_item_icon"
+        app:layout_constraintBottom_toTopOf="@id/game_item_subtitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/game_item_subtitle"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/black"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_smallest"
+        tools:text="Item Subtitle"
+        app:layout_constraintStart_toEndOf="@id/game_item_guideline"
+        app:layout_constraintEnd_toStartOf="@id/game_indicator"
+        app:layout_constraintTop_toBottomOf="@id/game_item_title"
+        app:layout_constraintBottom_toBottomOf="@id/game_item_icon" />
+
+    <ImageView
+        android:id="@+id/game_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        app:layout_constraintStart_toEndOf="@id/game_item_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_indicator_24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
