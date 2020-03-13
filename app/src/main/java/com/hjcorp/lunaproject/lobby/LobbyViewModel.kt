@@ -6,6 +6,10 @@ class LobbyViewModel : BaseViewModel() {
     fun createItems(): List<LobbyItem> {
         return listOf(
             GameItem(
+                gameNumber = 0,
+                gameName = "Game 0"
+            ),
+            GameItem(
                 gameNumber = 1,
                 gameName = "Game 1"
             ),

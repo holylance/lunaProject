@@ -11,12 +11,26 @@
         android:label="lobbyFragment"
         tools:layout="@layout/lobby_fragment" >
         <action
+            android:id="@+id/action_lobbyFragment_to_game0Fragment"
+            app:destination="@id/game0Fragment" />
+        <action
             android:id="@+id/action_lobbyFragment_to_game1Fragment"
             app:destination="@id/game1Fragment" />
         <action
             android:id="@+id/action_lobbyFragment_to_game2Fragment"
             app:destination="@id/game2Fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/game0Fragment"
+        android:name="com.hjcorp.lunaproject.game0.Game0Fragment"
+        android:label="game0Fragment"
+        tools:layout="@layout/game0_fragment" >
+        <action
+            android:id="@+id/action_game0Fragment_to_ADFragment"
+            app:destination="@id/ADFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/game1Fragment"
         android:name="com.hjcorp.lunaproject.game1.Game1Fragment"
@@ -26,6 +40,7 @@
             android:id="@+id/action_game1Fragment_to_ADFragment"
             app:destination="@id/ADFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/game2Fragment"
         android:name="com.hjcorp.lunaproject.game2.Game2Fragment"
@@ -35,6 +50,7 @@
             android:id="@+id/action_game2Fragment_to_ADFragment"
             app:destination="@id/ADFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/ADFragment"
         android:name="com.hjcorp.lunaproject.ad.ADFragment"
