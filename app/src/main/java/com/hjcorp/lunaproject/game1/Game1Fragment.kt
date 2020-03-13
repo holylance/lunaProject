@@ -1,6 +1,5 @@
 package com.hjcorp.lunaproject.game1
 
-import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,18 +23,40 @@ class Game1Fragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        game1_sprite.setImageResource(R.drawable.battery_sprite)
-        game1_sprite.setOnClickListener {
-            runSprite()
+        setImage(R.drawable.ic_filter_1_black_24dp)
+
+        game1_sprite.apply {
+            setOnClickListener {
+                when(viewModel.imageResource) {
+                    R.drawable.ic_filter_1_black_24dp -> {
+                        setImage(R.drawable.ic_filter_2_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsAirIntoBalloon)
+                    }
+                    R.drawable.ic_filter_2_black_24dp -> {
+                        setImage(R.drawable.ic_filter_3_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsAirIntoBalloon)
+                    }
+                    R.drawable.ic_filter_3_black_24dp -> {
+                        setImage(R.drawable.ic_filter_4_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsAirIntoBalloon)
+                    }
+                    R.drawable.ic_filter_4_black_24dp -> {
+                        setImage(R.drawable.ic_filter_5_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsAirIntoBalloon)
+                    }
+                    else -> {
+                        setImage(R.drawable.ic_filter_1_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsPang)
+                    }
+                }
+            }
         }
     }
 
     override fun bindProperties(disposable: CompositeDisposable) {}
 
-    private fun runSprite() {
-        val sprite = game1_sprite.drawable as AnimationDrawable
-        sprite.stop()
-        viewModel.playRandomDogBarking()
-        sprite.start()
+    private fun setImage(resourceId: Int) {
+        game1_sprite.setImageResource(resourceId)
+        viewModel.imageResource = resourceId
     }
 }

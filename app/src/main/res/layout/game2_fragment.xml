@@ -6,7 +6,7 @@
     android:id="@+id/game2_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hjcorp.lunaproject.game2.Game2Fragment">
+    tools:context="com.hjcorp.lunaproject.game1.Game1Fragment">
 
     <ImageView
         android:id="@+id/game2_sprite"

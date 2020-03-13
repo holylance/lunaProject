@@ -1,6 +1,7 @@
 package com.hjcorp.lunaproject.di
 
 import com.hjcorp.lunaproject.ad.ADViewModel
+import com.hjcorp.lunaproject.game0.Game0ViewModel
 import com.hjcorp.lunaproject.game1.Game1ViewModel
 import com.hjcorp.lunaproject.game2.Game2ViewModel
 import com.hjcorp.lunaproject.lobby.LobbyViewModel
@@ -15,6 +16,7 @@ val appModule = module {
     factory { Clock.systemDefaultZone() }
 
     viewModel<ADViewModel>()
+    viewModel<Game0ViewModel>()
     viewModel<Game1ViewModel>()
     viewModel<Game2ViewModel>()
     viewModel<LobbyViewModel>()

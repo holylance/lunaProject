@@ -30,18 +30,23 @@ class Game2Fragment : BaseFragment() {
                 when(viewModel.imageResource) {
                     R.drawable.ic_filter_1_black_24dp -> {
                         setImage(R.drawable.ic_filter_2_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsBoxCrashing)
                     }
                     R.drawable.ic_filter_2_black_24dp -> {
                         setImage(R.drawable.ic_filter_3_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsBoxCrashing)
                     }
                     R.drawable.ic_filter_3_black_24dp -> {
                         setImage(R.drawable.ic_filter_4_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsBoxCrashing)
                     }
                     R.drawable.ic_filter_4_black_24dp -> {
                         setImage(R.drawable.ic_filter_5_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsBoxCrashing)
                     }
                     else -> {
                         setImage(R.drawable.ic_filter_1_black_24dp)
+                        viewModel.playRandomSound(viewModel.soundsBoxCrashing)
                     }
                 }
             }

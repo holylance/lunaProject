@@ -1,38 +1,29 @@
 package com.hjcorp.lunaproject.game1
 
 import android.content.Context
-import android.media.AudioAttributes
-import android.media.SoundPool
 import com.hjcorp.lunaproject.R
 import com.hjcorp.lunaproject.shared.BaseViewModel
-import kotlin.random.Random
 
 class Game1ViewModel(
     context: Context
 ) : BaseViewModel() {
 
-    private val sounds = arrayListOf<Int>()
-    private var soundPool: SoundPool? = null
+    var imageResource: Int = 0
+    val soundsAirIntoBalloon = arrayListOf<Int>()
+    val soundsPang = arrayListOf<Int>()
 
     init {
-        val attributes = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_GAME)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .build()
+        imageResource = 0
 
-        soundPool = SoundPool.Builder()
-            .setAudioAttributes(attributes)
-            .build()
+        soundPool?.let { soundPool ->
+            soundsAirIntoBalloon.add(soundPool.load(context, R.raw.air_into_balloon0, 0))
+            soundsAirIntoBalloon.add(soundPool.load(context, R.raw.air_into_balloon1, 0))
+            soundsAirIntoBalloon.add(soundPool.load(context, R.raw.air_into_balloon2, 0))
 
-        soundPool?.let {soundPool ->
-            sounds.add(soundPool.load(context, R.raw.dog_barking0, 0))
-            sounds.add(soundPool.load(context, R.raw.dog_barking1, 0))
-            sounds.add(soundPool.load(context, R.raw.dog_barking2, 0))
+            soundsPang.add(soundPool.load(context, R.raw.balloon_pang0, 0))
+            soundsPang.add(soundPool.load(context, R.raw.balloon_pang1, 0))
+            soundsPang.add(soundPool.load(context, R.raw.balloon_pang2, 0))
+            soundsPang.add(soundPool.load(context, R.raw.balloon_pang3, 0))
         }
-    }
-
-    fun playRandomDogBarking() {
-        val index = Random.nextInt(0, sounds.size)
-        soundPool?.play(sounds[index], 1f, 1f, 0, 0, 1f)
     }
 }

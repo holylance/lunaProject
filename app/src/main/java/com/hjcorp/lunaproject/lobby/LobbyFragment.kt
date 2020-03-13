@@ -44,6 +44,7 @@ class LobbyFragment : BaseFragment() {
                 Type.Game -> {
                     data as GameItem
                     when(data.gameNumber) {
+                        0 -> nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game0Fragment)
                         1 -> nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game1Fragment)
                         else -> nav_host.findNavController().navigate(R.id.action_lobbyFragment_to_game2Fragment)
                     }

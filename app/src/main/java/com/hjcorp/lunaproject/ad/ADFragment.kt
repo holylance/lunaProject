@@ -12,6 +12,7 @@ import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ad_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.Exception
 
 class ADFragment : BaseFragment() {
 
@@ -38,7 +39,9 @@ class ADFragment : BaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
                     viewModel.count++
-                    progress_bar_youtube.progress = viewModel.count * 50
+                    try {
+                        progress_bar_youtube.progress = viewModel.count * 50
+                    } catch ( ex: Exception ) { }
                 }
                 .doOnComplete {
                     nav_host.findNavController().navigate(R.id.lobbyFragment)
